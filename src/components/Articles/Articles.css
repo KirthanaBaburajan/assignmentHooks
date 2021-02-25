@@ -1,0 +1,7 @@
+.article-body {
+  display: none;
+}
+
+.article-body > div {
+  /* width: 800px; */
+}
