@@ -1,17 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
+import Article from "./Article";
 import "./Articles.css";
 
 const Articles = (props) => {
+  console.log("==================");
   const [articles, setArticles] = useState([]);
+  // const [show, setShow] = useState(false);
+
   const list = useRef(0);
 
   useEffect(() => {
     data();
-  }, []);
+  });
 
   const data = async () => {
     const promises = await fetch(
-      `https://jsonplaceholder.typicode.com/posts?_limit=5`
+      `https://jsonplaceholder.typicode.com/posts?_limit=3`
     );
     const jsonData = await promises.json();
 
@@ -40,7 +44,8 @@ const Articles = (props) => {
             return (
               <div key={article.id}>
                 <h3>{article.title}</h3>
-                <p>{article.body}</p>
+                {/* <p>{article.body}</p> */}
+                {<Article id={article.id} />}
                 <hr />
               </div>
             );
